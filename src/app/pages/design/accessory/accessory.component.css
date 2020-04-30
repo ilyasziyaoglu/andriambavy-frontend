@@ -1,0 +1,21 @@
+:host {
+  position: absolute;
+  /*margin-left: 50%;*/
+  /*margin-top: 50%;*/
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  height: 10vh;
+  cursor: pointer;
+}
+
+.remove {
+  float: right;
+  cursor: pointer;
+}
+
+#hideSwitch {
+  cursor: pointer;
+}

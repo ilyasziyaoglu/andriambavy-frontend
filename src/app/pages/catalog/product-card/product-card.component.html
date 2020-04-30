@@ -1,0 +1,10 @@
+<nb-card class="rounded-0">
+  <nb-card-body>
+    <nb-icon class="mark-as-favorite" icon="heart-outline"></nb-icon>
+    <img [src]="product.mainImgUrl" [alt]="product.name">
+  </nb-card-body>
+  <nb-card-footer>
+    <p>{{product.name}}</p>
+    <p>$ {{product.price | number}}</p>
+  </nb-card-footer>
+</nb-card>

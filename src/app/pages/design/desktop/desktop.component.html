@@ -1,0 +1,37 @@
+<div class="row h-100">
+
+  <div class="col-sm-9">
+    <ngx-model *ngIf="model" [model]="model"
+               (modelSelect)="onModelElementSelect()">
+    </ngx-model>
+
+    <ngx-accessory *ngFor="let accessory of accessories"
+                   [accessory]="accessory"
+                   [properties]="accessory.properties.props[accessory.cma][accessory.location][model.angle]"
+                   [style.left]="accessory.properties.props[accessory.cma][accessory.location][model.angle].x + '%'"
+                   [style.top]="accessory.properties.props[accessory.cma][accessory.location][model.angle].y + '%'"
+                   (accessoryElementRemove)="onRemoveAccessoryElement($event)"
+                   (click)="onAccessoryElementSelect(accessory)"></ngx-accessory>
+
+
+    <div *ngIf="currentElement && currentElement != model">
+      <div class="point rounded-circle bg-success"
+           *ngFor="let location of currentElement.properties.props[currentElement.cma] | keyvalue"
+           (click)="ngOnLocationChange(location.key)"
+           [hidden]="currentElement.location === location.key || !currentElement.location"
+           [style.left]="location.value[model.angle].x + '%'"
+           [style.top]="location.value[model.angle].y + '%'">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 property-area">
+    <ngx-property-manager *ngIf="environment.isAdmin && accessories?.length"
+                          (newLocation)="onAddNewLocation()"
+                          (save)="onSaveProperties()"
+                          [accessory]="currentElement"
+                          [properties]="currentElement.properties.props[currentElement.cma][currentElement.location][model?.angle]">
+    </ngx-property-manager>
+    <ngx-color-manager *ngIf="currentColorModel" [currentColorModel]="currentColorModel"></ngx-color-manager>
+  </div>
+</div>

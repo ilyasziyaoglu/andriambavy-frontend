@@ -1,0 +1,29 @@
+.row {
+  margin: 0;
+}
+
+.card-bar {
+  background-color: #d3d3d3;
+  font-weight: lighter;
+}
+
+.model {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+
+
+@media only screen and (max-device-width: 768px) {
+  .model {
+    width: 45% !important;
+  }
+
+  .card-bar {
+    background-color: #d3d3d3;
+    font-weight: lighter;
+    font-size: small;
+  }
+}

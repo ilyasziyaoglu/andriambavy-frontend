@@ -1,0 +1,53 @@
+<nb-card class="rounded-0">
+  <nb-card-header>
+    <p>Filter</p>
+  </nb-card-header>
+  <nb-card-body>
+
+    <label for="category">Category</label>
+    <nb-select class="w-100 rounded-0" id="category" fullWidth placeholder="Category">
+      <nb-option value="">All</nb-option>
+      <nb-option value="usa">Mag</nb-option>
+      <nb-option value="turkey">Tag</nb-option>
+      <nb-option value="italia">Yok</nb-option>
+    </nb-select>
+
+    <label for="size">Size</label>
+    <nb-select class="w-100 rounded-0" id="size" fullWidth placeholder="Category">
+      <nb-option value="">All</nb-option>
+      <nb-option value="usa">Mag</nb-option>
+      <nb-option value="turkey">Tag</nb-option>
+      <nb-option value="italia">Yok</nb-option>
+    </nb-select>
+
+    <label for="color">Color</label>
+    <nb-select class="w-100 rounded-0" id="color" fullWidth placeholder="Category">
+      <nb-option value="">All</nb-option>
+      <nb-option value="usa">Mag</nb-option>
+      <nb-option value="turkey">Tag</nb-option>
+      <nb-option value="italia">Yok</nb-option>
+    </nb-select>
+
+    <section>
+
+    <mat-slider
+      style="position: absolute"
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1000"
+      value="15000"
+      min="1"
+      max="100000"></mat-slider>
+    <mat-slider
+      invert="true"
+      style="position: absolute"
+      thumbLabel
+      value="35000"
+      [displayWith]="formatLabel"
+      tickInterval="1000"
+      min="1"
+      max="100000"></mat-slider>
+    </section>
+
+  </nb-card-body>
+</nb-card>

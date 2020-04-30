@@ -1,0 +1,27 @@
+<div class="row">
+  <img [src]="model.angles[model.angle]"
+       [ngClass]="{'border': model.isActive}"
+       (click)="onModelSelect()"
+       [ngStyle]="{'filter': 'hue-rotate(' + model.currentColor.hue + 'deg) ' +
+                            'brightness(' + model.currentColor.brightness + ') ' +
+                            'contrast(' + model.currentColor.contrast + '%) ' +
+                            'saturate(' + model.currentColor.saturate +'%) ' +
+                            'grayscale(' + model.currentColor.grayscale + '%) ' +
+                            'sepia(' + model.currentColor.sepia + '%)'}"
+       [alt]="model.name">
+</div>
+<div class="row ">
+  <div class="col angle-range">
+    <label for="angle">Model angle</label>
+    <input type="range"
+           class="custom-range"
+           id="angle"
+           [(ngModel)]="model.angle"
+           min="0" max="7">
+  </div>
+</div>
+
+
+
+
+

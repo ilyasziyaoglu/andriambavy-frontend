@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-2">
+    <ngx-filter></ngx-filter>
+  </div>
+  <div class="col-sm-10">
+    <div class="row">
+      <ngx-product-card class="float-left" *ngFor="let product of products" [product]="product" [routerLink]="['/pages/shop/detail', product.id]"></ngx-product-card>
+      <ngx-product-card class="float-left" *ngFor="let product of products" [product]="product" [routerLink]="['/pages/shop/detail', product.id]"></ngx-product-card>
+      <ngx-product-card class="float-left" *ngFor="let product of products" [product]="product" [routerLink]="['/pages/shop/detail', product.id]"></ngx-product-card>
+      <ngx-product-card class="float-left" *ngFor="let product of products" [product]="product" [routerLink]="['/pages/shop/detail', product.id]"></ngx-product-card>
+    </div>
+  </div>
+</div>

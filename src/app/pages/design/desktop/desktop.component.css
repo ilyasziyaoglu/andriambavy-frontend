@@ -1,0 +1,18 @@
+
+:host {
+  width: 100%;
+}
+
+.property-area {
+  overflow: scroll;
+  height: inherit;
+}
+
+.point {
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  cursor: pointer;
+  height: 1rem;
+  width: 1rem;
+}

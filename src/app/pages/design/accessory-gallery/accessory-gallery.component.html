@@ -1,0 +1,28 @@
+<div class="row m-3 d-flex justify-content-center">
+  <div class="w-25 subtype-item"
+       (click)="onSubTypeSelect(subType.key, i)"
+       [ngClass]="{'border': i == currentSubtypeIndex}"
+       *ngFor="let subType of accessories | keyvalue; let i = index">
+    <img [src]="accessoryService.getSubCategoryImgUrl(subType.value[0])" [alt]="subType.key" class="subtype-img">
+    <p class="subtype-title mt-1">{{subType.key.toString() | uppercase}}</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="w-25 accessory"
+       *ngFor="let accessory of accessories[subType || Object.keys(accessories)[0]]"
+       (click)="onSelectAccessory(accessory)">
+
+    <div class="row d-flex justify-content-between card-bar">
+      <span>{{accessory.name | uppercase }}</span>
+      <span>{{accessory.price}} $</span>
+    </div>
+
+    <div class="row">
+      <img [src]="accessory.src" [alt]="accessory.name">
+    </div>
+
+  </div>
+</div>

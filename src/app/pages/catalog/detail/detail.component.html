@@ -1,0 +1,17 @@
+<div class="row" *ngIf="product">
+  <div class="col-sm-7">
+    <img *ngFor="let imgUrl of product.imgUrls.split(',')" [src]="imgUrl" [alt]="product.name">
+  </div>
+  <div class="col-sm-5">
+    <p class="product-name">{{product.name}}</p>
+    <p class="product-code">{{product.productCode}}</p>
+<!--    <nb-radio-group [(ngModel)]="option">-->
+<!--      <nb-radio-->
+<!--        *ngFor="let option of options"-->
+<!--        [value]="option.value">-->
+<!--        {{ option.label }}-->
+<!--      </nb-radio>-->
+<!--    </nb-radio-group>-->
+
+  </div>
+</div>

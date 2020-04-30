@@ -1,0 +1,50 @@
+<div class="d-flex flex-nowrap">
+  <div class="rounded-circle color border"
+       *ngFor="let color of currentColorModel.colors | keyvalue"
+       (click)="onColorSelect(color)"
+       [ngClass]="{'active' : color.key === currentColorName}"
+       [style.backgroundColor]="color.key === 'orginal' ? '' : color.key">
+  </div>
+  <div class="rounded-circle color border"
+       (click)="onColorAdd()"
+       [style.backgroundColor]="'lightgray'">
+    <span>&#43;</span>
+  </div>
+</div>
+
+<div class="form-row">
+  <button type="button" class="btn btn-light" (click)="onSaveColors()"><mat-icon>save</mat-icon></button>
+  <button type="button" class="btn btn-light" (click)="onDeleteColor()">Delete Color</button>
+</div>
+
+<hr>
+
+<label for="hue">Hue</label>
+<input type="range" class="custom-range"
+       [(ngModel)]="currentColorModel.currentColor.hue"
+       min="0" max="360" id="hue">
+
+<label for="saturate">Saturate</label>
+<input type="range" class="custom-range"
+       [(ngModel)]="currentColorModel.currentColor.saturate"
+       min="0" max="300" id="saturate">
+
+<label for="contrast">Contrast</label>
+<input type="range" class="custom-range"
+       [(ngModel)]="currentColorModel.currentColor.contrast"
+       min="0" max="300" id="contrast">
+
+<label for="brightness">Brightness</label>
+<input type="range" class="custom-range"
+       [(ngModel)]="currentColorModel.currentColor.brightness"
+       min="0" max="3" step="0.1" id="brightness">
+
+<label for="grayScale">Gray scale</label>
+<input type="range" class="custom-range"
+       [(ngModel)]="currentColorModel.currentColor.grayscale"
+       min="0" max="100" id="grayScale">
+
+<label for="sepia">Sepia</label>
+<input type="range" class="custom-range"
+       [(ngModel)]="currentColorModel.currentColor.sepia"
+       min="0" max="100" id="sepia">

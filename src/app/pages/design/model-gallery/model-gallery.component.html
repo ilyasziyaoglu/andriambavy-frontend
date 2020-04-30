@@ -1,0 +1,12 @@
+<div class="row" *ngIf="models">
+  <div class="w-25 p-2 model" *ngFor="let model of models"
+       (click)="onSelectModel(model)">
+    <div class="row  p-3 d-flex justify-content-between card-bar">
+      <span>{{model.name | uppercase}}</span>
+      <span>{{model.price}} $</span>
+    </div>
+    <div class="row">
+      <img [src]="model.src" [alt]="model.name">
+    </div>
+  </div>
+</div>
