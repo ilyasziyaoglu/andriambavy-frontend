@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-2 pl-0">
+    <nb-card>
+      <ngx-filter (onFilter)="onFilter($event)" class="w-100"></ngx-filter>
+    </nb-card>
+  </div>
+  <div class="col-sm-10">
+    <div class="row">
+      <ngx-product-card class="float-left"
+                        *ngFor="let productModel of productModels"
+                        [category]="'limited-edition'"
+                        [productModel]="productModel"></ngx-product-card>
+    </div>
+  </div>
+</div>
