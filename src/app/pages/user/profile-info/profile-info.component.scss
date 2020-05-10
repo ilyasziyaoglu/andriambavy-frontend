@@ -15,6 +15,10 @@ textarea {
   }
 }
 
+nb-select {
+  filter: grayscale(1);
+}
+
 nb-select.button {
   border-color: lightgrey !important;
   border-radius: 0 !important;

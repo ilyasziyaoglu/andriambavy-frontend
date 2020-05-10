@@ -1,53 +1,46 @@
-<nb-card class="rounded-0">
-  <nb-card-header>
-    <p>Filter</p>
-  </nb-card-header>
-  <nb-card-body>
+<div class="filter-area w-100">
+    <div class="row">
+        <label for="category">Category</label>
+        <nb-select multiple class="w-100 rounded-0" [(ngModel)]="filter.category" id="category" fullWidth placeholder="Category">
+            <nb-option value="">All</nb-option>
+            <nb-option value="usa">Mag</nb-option>
+            <nb-option value="turkey">Tag</nb-option>
+            <nb-option value="italia">Yok</nb-option>
+        </nb-select>
+    </div>
 
-    <label for="category">Category</label>
-    <nb-select class="w-100 rounded-0" id="category" fullWidth placeholder="Category">
-      <nb-option value="">All</nb-option>
-      <nb-option value="usa">Mag</nb-option>
-      <nb-option value="turkey">Tag</nb-option>
-      <nb-option value="italia">Yok</nb-option>
-    </nb-select>
+    <div class="row">
+        <label for="size">Size</label>
+        <nb-select multiple class="w-100 rounded-0" [(ngModel)]="filter.size" id="size" fullWidth placeholder="Size">
+            <nb-option value="">All</nb-option>
+            <nb-option value="S">Small</nb-option>
+            <nb-option value="M">Medium</nb-option>
+            <nb-option value="L">Large</nb-option>
+        </nb-select>
+    </div>
 
-    <label for="size">Size</label>
-    <nb-select class="w-100 rounded-0" id="size" fullWidth placeholder="Category">
-      <nb-option value="">All</nb-option>
-      <nb-option value="usa">Mag</nb-option>
-      <nb-option value="turkey">Tag</nb-option>
-      <nb-option value="italia">Yok</nb-option>
-    </nb-select>
+    <div class="row">
+        <label class="w-100">Color</label>
+        <div class="color" *ngFor="let color of colors"
+             [ngClass]="{'active': colorIncludes(color)}"
+             (click)="onColorSelect(color)"
+             [style.backgroundColor]="color.colorCode">
+        </div>
+    </div>
 
-    <label for="color">Color</label>
-    <nb-select class="w-100 rounded-0" id="color" fullWidth placeholder="Category">
-      <nb-option value="">All</nb-option>
-      <nb-option value="usa">Mag</nb-option>
-      <nb-option value="turkey">Tag</nb-option>
-      <nb-option value="italia">Yok</nb-option>
-    </nb-select>
-
-    <section>
-
-    <mat-slider
-      style="position: absolute"
-      thumbLabel
-      [displayWith]="formatLabel"
-      tickInterval="1000"
-      value="15000"
-      min="1"
-      max="100000"></mat-slider>
-    <mat-slider
-      invert="true"
-      style="position: absolute"
-      thumbLabel
-      value="35000"
-      [displayWith]="formatLabel"
-      tickInterval="1000"
-      min="1"
-      max="100000"></mat-slider>
-    </section>
-
-  </nb-card-body>
-</nb-card>
+    <div class="row">
+        <label class="w-100" for="min">Price</label>
+        <input class="col-sm mr-2" id="min" nbInput fullWidth status="primary"
+               [(ngModel)]="filter.min"
+               type="number" min="0" max="9999"
+               placeholder="Min">
+        <input class="col-sm ml-2" id="max" nbInput fullWidth status="primary"
+               [(ngModel)]="filter.max"
+               type="number" min="0" max="9999"
+               placeholder="Max">
+    </div>
+    <div class="row">
+        <button (click)="onFilterEvent()" class="btn-lg rounded-0 w-100">Filter <i class="fas fa-filter"></i></button>
+    </div>
+    <br>
+</div>

@@ -41,6 +41,7 @@ import { DARK_THEME } from './styles/theme.dark';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
+import {MatBadgeModule} from "@angular/material/badge";
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -74,7 +75,7 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES, MatMenuModule, MatButtonModule, RouterModule],
+	imports: [CommonModule, ...NB_MODULES, MatMenuModule, MatButtonModule, RouterModule, MatBadgeModule],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
 })

@@ -13,13 +13,13 @@ export class ProfileInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.addresses = JSON.parse(this.user.addresses) || [];
+    this.addresses = JSON.parse(this.user.addresses) || [{name: '', value: ''}];
   }
 
   onAddressChange() {
     setTimeout(() => {
       this.user.addresses = JSON.stringify(this.addresses);
-    }, 1000);
+    }, 500);
   }
 
   addNewAddress() {

@@ -5,8 +5,9 @@ import {UserData} from '../../../@core/data/users';
 import {LayoutService} from '../../../@core/utils';
 import {map, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {StorageService} from '../../../services/base/storage.service';
 import {environment} from '../../../../environments/environment';
+import {Browser} from "leaflet";
+import win = Browser.win;
 
 @Component({
   selector: 'ngx-header',
@@ -48,24 +49,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
   //   { title: 'Home', link: 'home' },
   //   { title: 'Design', link: 'design' },
   //   { title: 'Limited Edition', link: 'limited-edition' },
-  //   { title: 'Jerwley', link: 'jerwley' },
+  //   { title: 'Jewelry', link: 'jewelry' },
   //   { title: 'About', link: 'about' },
   //   { title: 'Contact Us', link: 'contact' }
   // ];
+  storage: any;
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private userService: UserData,
               private layoutService: LayoutService,
-              private storageService: StorageService,
               private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
-    this.user = this.storageService.storage['user'] || {
+    this.storage = window['storage'];
+    this.user = window['storage']['user'] || {
       fullName: 'Log In',
       imageUrl: 'https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png',
     };

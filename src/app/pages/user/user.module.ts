@@ -16,22 +16,24 @@ import {
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { ProfileOrderComponent } from './profile-order/profile-order.component';
 import {FormsModule} from '@angular/forms';
+import {CatalogModule} from "../catalog/catalog.module";
 
 @NgModule({
   declarations: [UserComponent, ProfileComponent, ProfileCardComponent, ProfileInfoComponent, ProfileOrderComponent],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    NbCardModule,
-    NbActionsModule,
-    NbTabsetModule,
-    NbListModule,
-    NbInputModule,
-    FormsModule,
-    NbSelectModule,
-    NbDatepickerModule,
-    NbButtonModule,
-    NbIconModule,
-  ],
+	imports: [
+		CommonModule,
+		UserRoutingModule,
+		NbCardModule,
+		NbActionsModule,
+		NbTabsetModule,
+		NbListModule,
+		NbInputModule,
+		FormsModule,
+		NbSelectModule,
+		NbDatepickerModule,
+		NbButtonModule,
+		NbIconModule,
+		CatalogModule
+	]
 })
 export class UserModule { }

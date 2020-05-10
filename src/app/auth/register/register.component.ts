@@ -34,8 +34,8 @@ export class RegisterComponent implements OnInit {
       };
 
       this.httpService.doRequest(HttpMethod.POST, 'auth/register', data, (response) => {
-        this.storageService.setItem('token', response.token);
-        this.storageService.setItem('user', response.userResponse);
+        window['storage'].setItem('token', response.token);
+        window['storage'].setItem('user', response.userResponse);
         this.router.navigateByUrl('pages/design');
       });
     }

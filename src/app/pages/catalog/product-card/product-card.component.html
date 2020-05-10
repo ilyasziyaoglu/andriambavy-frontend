@@ -1,10 +1,12 @@
 <nb-card class="rounded-0">
   <nb-card-body>
-    <nb-icon class="mark-as-favorite" icon="heart-outline"></nb-icon>
-    <img [src]="product.mainImgUrl" [alt]="product.name">
+    <nb-icon class="mark-as-favorite"
+             [icon]="getHeartIcon()"
+             (click)="onToggleFavorite()"></nb-icon>
+    <img [routerLink]="['/pages/' + category + '/detail', productModel.id, productModel.productId]" [src]="productModel.imgUrl" [alt]="productModel.name">
   </nb-card-body>
-  <nb-card-footer>
-    <p>{{product.name}}</p>
-    <p>$ {{product.price | number}}</p>
+  <nb-card-footer [routerLink]="['/pages/' + category + '/detail', productModel.id, productModel.productId]">
+    <p>{{productModel.name}}</p>
+    <p>$ {{productModel.price | number}}</p>
   </nb-card-footer>
 </nb-card>

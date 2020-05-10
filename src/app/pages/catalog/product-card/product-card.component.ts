@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MyFavoritesService} from '../../../services/my-favorites.service';
 
 @Component({
   selector: 'ngx-product-card',
@@ -7,11 +8,22 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
-  @Input() product;
+  @Input() productModel;
+  @Input() category;
 
-  constructor() { }
+  constructor(
+      private myFavoritesService: MyFavoritesService,
+  ) { }
 
   ngOnInit() {
   }
 
+  onToggleFavorite() {
+    this.myFavoritesService.toggle(this.productModel);
+  }
+
+  getHeartIcon() {
+    const inFavorites = this.myFavoritesService.includes(this.productModel);
+    return inFavorites ? 'heart' : 'heart-outline';
+  }
 }

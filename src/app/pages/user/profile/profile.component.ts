@@ -10,12 +10,14 @@ export class ProfileComponent implements OnInit {
 
   user: any;
   orders: any = [];
+  storage: any;
   constructor(
     private storageService: StorageService,
   ) { }
 
   ngOnInit() {
-    this.user = this.storageService.storage['user'];
+    this.storage = window['storage'];
+    this.user = window['storage']['user'];
   }
 
 }
